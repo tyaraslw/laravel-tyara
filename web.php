@@ -21,6 +21,11 @@ Route::post('/isi-masyarakat', [pengaduanControll::class, 'proses_tambah_masyara
 Route::get('/isi-masyarakat', [pengaduanControll::class, 'tampil_isiM']);
 // Route::get('/isi-masyarakat', [masyarakatControll::class, 'tampil_isiM']);
 
+//petugas
+Route::get('/petugas', [pengaduanControll::class, 'petugas']);
+Route::post('/isi-petugas', [pengaduanControll::class, 'proses_tambah_petugas']);
+Route::get('/isi-petugas', [pengaduanControll::class, 'tampil_isiP']);
+
 Route::get('/login', function () {
     return view('login');
 });

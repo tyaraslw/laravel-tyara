@@ -11,46 +11,50 @@ use Illuminate\Support\Facades\DB;
 
 class pengaduanControll extends Controller
 {
-    function index(){
+    function index()
+    {
 
         $judul = "Selamat datang";
 
         return view('home', ['TextJudul' => $judul]);
     }
 
-    function pengaduan(){ 
-        
+    function pengaduan()
+    {
+
         $data = "Data Laporan";
         $pengaduan = DB::table('pengaduan')->get();
-        
+
         return view('pengaduan', ['TextIsi' => $data, 'pengaduan' => $pengaduan]);
     }
 
-    function tampil_isi(){ 
-        
+    function tampil_isi()
+    {
+
         $isi = "Silahkan Isi Laporan anda";
-        
+
         return view('isi-pengaduan', ['isi' => $isi]);
     }
 
-    function proses_tambah_pengaduan(Request $request){
+    function proses_tambah_pengaduan(Request $request)
+    {
         //validasi
         $request->validate([
             'isi_laporan' => 'required|min:2'
         ]);
 
 
-         // $isi_pengaduan = $_POST['isi_laporan'];
-         $isi_pengaduan = $request->isi_laporan;
+        // $isi_pengaduan = $_POST['isi_laporan'];
+        $isi_pengaduan = $request->isi_laporan;
 
-         DB::table('pengaduan')->insert([
+        DB::table('pengaduan')->insert([
             'tgl_pengaduan' => date('Y-m-d'),
             'nik' => '07',
             'isi_laporan' => $isi_pengaduan,
             'foto' => '',
             'status' => '0'
-         ]);
-         return redirect('/pengaduan');
+        ]);
+        return redirect('/pengaduan');
     }
 
     function masyarakat()
@@ -93,6 +97,50 @@ class pengaduanControll extends Controller
             'telp' => $isi_telp,
         ]);
         return redirect('/masyarakat');
+    }
+
+    function petugas()
+    {
+
+        $dataP = "Data petugas";
+        $petugas = DB::table('petugas')->get();
+
+        return view('petugas', ['TextIsi' => $dataP, 'petugas' => $petugas]);
+    }
+
+    function tampil_isiP()
+    {
+
+        $isiP = "Silahkan Daftar Petugas";
+
+        return view('isi-petugas', ['isiP' => $isiP]);
+    }
+
+    function proses_tambah_petugas(Request $request)
+    {
+
+        //validasi
+        $request->validate([
+            'isi_daftar' => 'required|min:2'
+        ]);
+
+
+        // $isi_petugas = $_POST['isi_laporan'];
+        $isi_petugas = $request->isi_daftar;
+        $isi_username = $request->isi_user;
+        $isi_password = $request->isi_pass;
+        $isi_telp = $request->isi_no;
+        $level = $request->isi_level;
+
+        DB::table('masyarakat')->insert([
+            'id_petugas' => '',
+            'nama' => $isi_petugas,
+            'username' => $isi_username,
+            'password' => $isi_password,
+            'telp' => $isi_telp,
+            'level' => $level,
+        ]);
+        return redirect('/petugas');
     }
 
 }

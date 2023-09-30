@@ -17,6 +17,9 @@
           <a class="nav-link active" aria-current="page" href="{{url('masyarakat')}}">masyarakat</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url('petugas')}}">petugas</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{url('pengaduan')}}">Pengaduan</a>
         </li>
         <li class="nav-item">
@@ -24,6 +27,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('isi-masyarakat')}}">daftar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('isi-petugas')}}">isiP</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('login')}}">login</a>
