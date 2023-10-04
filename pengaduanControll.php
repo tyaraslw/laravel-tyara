@@ -14,7 +14,7 @@ class pengaduanControll extends Controller
     function index()
     {
 
-        $judul = "Selamat datang";
+        $judul = "Welcomeeeee";
 
         return view('home', ['TextJudul' => $judul]);
     }
@@ -99,6 +99,7 @@ class pengaduanControll extends Controller
         return redirect('/masyarakat');
     }
 
+
     function petugas()
     {
 
@@ -141,6 +142,67 @@ class pengaduanControll extends Controller
             'level' => $level,
         ]);
         return redirect('/petugas');
+    }
+
+    //tanggapan
+    function tanggapan()
+    {
+
+        $dataT = "Tanggapan Anda";
+        $tanggapan = DB::table('tanggapan')->get();
+
+        return view('tanggapan', ['TextIsi' => $dataT, 'tanggapan' => $tanggapan]);
+    }
+
+    function tampil_isiT()
+    {
+
+        $isiT = "Beri Tanggapan";
+
+        return view('isi-tanggapan', ['isiT' => $isiT]);
+    }
+
+    function proses_tambah_tanggapan(Request $request)
+    {
+
+        //validasi
+        $request->validate([
+            'isi_daftar' => 'required|min:2'
+        ]);
+
+
+        // $isi_tanggapan = $_POST['isi_laporan'];
+        // $isi_tanggapan = $request->isi_daftar;
+        // $isi_ = $request->isi_user;
+        // $isi_password = $request->isi_pass;
+        // $isi_telp = $request->isi_no;
+        // $level = $request->isi_level;
+
+        // DB::table('masyarakat')->insert([
+        //     'id_petugas' => '',
+        //     'nama' => $isi_petugas,
+        //     'username' => $isi_username,
+        //     'password' => $isi_password,
+        //     'telp' => $isi_telp,
+        //     'level' => $level,
+        // ]);
+        // return redirect('/petugas');
+    }
+
+    //hapus
+    function hapus($id)
+    {
+        DB::table('pengaduan')->where('id_pengaduan', '=', $id)->delete();
+
+        return redirect()->back();
+    }
+
+    function detail_pengaduan($id)
+    {
+        $pengaduan = DB::table('pengaduan')
+            ->where('id_pengaduan', '=', $id)
+            ->first();
+        return view("detail_pengaduan", ["pengaduan" => $pengaduan]);
     }
 
 }
