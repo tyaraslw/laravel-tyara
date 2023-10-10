@@ -32,9 +32,11 @@
               <td>{{$pengaduan->isi_laporan}} </td>
               <td>{{$pengaduan->foto}}</td>  
               <td>{{$pengaduan->status}}</td>
-          <td>
-            <a href='halaman_edit.php?id_pengaduan=$pengaduan[id_pengaduan]'>Edit</a>|
-            <a href='proseshapus.php?id_pengaduan=$pengaduan[id_pengaduan]'>Delete</a>
+            <td>
+            <a href="hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Delete</a>|
+            <a href="detail-pengaduan/{{$pengaduan->id_pengaduan}}">Detail</a>|
+            <a href="update/{{$pengaduan->id_pengaduan}}">Update</a>        
+            </form>
           </td>
       </tbody>
           </tr>
@@ -43,12 +45,3 @@
        </div> 
 </body>
 </html>
-{{-- {
-          echo "<td>" . $pengaduan['status'] . "</td>";
-          echo "<td>";
-          echo "<td><a href='halaman_edit.php?id_pengaduan=$pengaduan[id_pengaduan]'>Edit</a>|
-                  <a href='proseshapus.php?id_pengaduan=$pengaduan[id_pengaduan]'>Delete</a></td></tr>";
-          echo "</td>";
-        }
-        ?>
-      </tbody> --}}

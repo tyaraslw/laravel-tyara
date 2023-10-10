@@ -192,21 +192,29 @@ class pengaduanControll extends Controller
     //hapus
     function hapus($id)
     {
-        DB::table('pengaduan')->where('id_pengaduan', '=', $id)->delete();
-
-        return redirect()->back();
+        $deleted=DB::table('pengaduan')->where('id_pengaduan', $id)->delete();
+        if($deleted){
+            return redirect()->back();
+        }
     }
 
     function detail_pengaduan($id)
     {
-        $pengaduan = DB::table('pengaduan')
+        $data = DB::table('pengaduan')
             ->where('id_pengaduan', '=', $id)
             ->first();
-        return view("detail_pengaduan", ["pengaduan" => $pengaduan]);
+        return view("detail_pengaduan", ["data" => $data]);
     }
 
-}
+    //update
+    function update($id)
+    {
+        $affected = DB::table('pengaduan')
+                  ->where('id_pengaduan', $id)
+                  ->update(['isi_laporan' => "sudah di update"]);
+    }
 
-// function pengaduan(){
-//     return view('pengaduan');
-// }
+    // $positions = position::all();
+    // return view('users.tampilupdate', compact('positions'));
+
+}

@@ -14,6 +14,7 @@ Route::get('/home', [pengaduanControll::class, 'index']);
 Route::get('/pengaduan', [pengaduanControll::class, 'pengaduan']);
 Route::post('/isi-pengaduan', [pengaduanControll::class, 'proses_tambah_pengaduan']);
 Route::get('/isi-pengaduan', [pengaduanControll::class, 'tampil_isi']);
+Route::get('/hapus-pengaduan/{id}', [pengaduanControll::class, 'hapus']);
 
 //masyarakat
 Route::get('/masyarakat', [pengaduanControll::class, 'masyarakat']);
@@ -25,6 +26,12 @@ Route::get('/isi-masyarakat', [pengaduanControll::class, 'tampil_isiM']);
 Route::get('/petugas', [pengaduanControll::class, 'petugas']);
 Route::post('/isi-petugas', [pengaduanControll::class, 'proses_tambah_petugas']);
 Route::get('/isi-petugas', [pengaduanControll::class, 'tampil_isiP']);
+
+Route::get('/detail-pengaduan/{id}', [pengaduanControll::class, 'detail_pengaduan']);
+
+Route::get('/update/{id}', [pengaduanControll::class, 'update']);
+Route::get('/tampilupdate', [pengaduanControll::class, 'update']);
+
 
 Route::get('/login', function () {
     return view('login');
