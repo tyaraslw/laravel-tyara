@@ -39,10 +39,13 @@ class pengaduanControll extends Controller
     function proses_tambah_pengaduan(Request $request)
     {
         //validasi
+        $nama_foto = $request->foto->getClientOriginalName();
+
         $request->validate([
             'isi_laporan' => 'required|min:2'
         ]);
-
+        
+        $request->foto->storeAs('public/image', $nama_foto);
 
         // $isi_pengaduan = $_POST['isi_laporan'];
         $isi_pengaduan = $request->isi_laporan;
@@ -51,7 +54,7 @@ class pengaduanControll extends Controller
             'tgl_pengaduan' => date('Y-m-d'),
             'nik' => '07',
             'isi_laporan' => $isi_pengaduan,
-            'foto' => '',
+            'foto' => $request->foto->getClientOriginalName(),
             'status' => '0'
         ]);
         return redirect('/pengaduan');
@@ -215,6 +218,8 @@ class pengaduanControll extends Controller
     function proses_update_pengaduan(Request $request, $id)
     {
         $isi_laporan = $request->isi_laporan;
+
+        // return $isi_laporan;
 
         DB::table('pengaduan')
         ->where('id_pengaduan', $id)

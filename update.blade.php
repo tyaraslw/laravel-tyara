@@ -13,7 +13,8 @@
     <center>
     <td><h2>Update here!</h2></td>
     </center>
-        <form action="isi-pengaduan" method="POST" enctype="multipart/form-data">
+
+        <form action={{url("update/$pengaduan->id_pengaduan")}} method="POST" enctype="multipart/form-data">
             <div class="container">
                 @method("POST")
                 @csrf 

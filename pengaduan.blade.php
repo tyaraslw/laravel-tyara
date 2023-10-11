@@ -32,7 +32,7 @@
               <td>{{$pengaduan->id_pengaduan}}</td>  
               <td>{{$pengaduan->tgl_pengaduan}}</td>  
               <td>{{$pengaduan->isi_laporan}} </td>
-              <td>{{$pengaduan->foto}}</td>  
+              <td><img src='{{asset("storage/image/" .$pengaduan->foto)}}' widht="100px"/></td>  
               <td>{{$pengaduan->status}}</td>
             <td>
             <a href="hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Delete</a>|
