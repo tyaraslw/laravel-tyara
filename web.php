@@ -29,9 +29,10 @@ Route::get('/isi-petugas', [pengaduanControll::class, 'tampil_isiP']);
 
 Route::get('/detail-pengaduan/{id}', [pengaduanControll::class, 'detail_pengaduan']);
 
-Route::get('/update/{id}', [pengaduanControll::class, 'update']);
-Route::get('/tampilupdate', [pengaduanControll::class, 'update']);
+//update
 
+Route::post('/update/{id}', [pengaduanControll::class, 'proses_update_pengaduan']);
+Route::get('/update/{id}', [pengaduanControll::class, 'update_pengaduan']);
 
 Route::get('/login', function () {
     return view('login');

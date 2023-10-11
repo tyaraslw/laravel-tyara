@@ -207,14 +207,20 @@ class pengaduanControll extends Controller
     }
 
     //update
-    function update($id)
+    function update_pengaduan($id)
     {
-        $affected = DB::table('pengaduan')
-                  ->where('id_pengaduan', $id)
-                  ->update(['isi_laporan' => "sudah di update"]);
+        $pengaduan = DB::table('pengaduan')->where('id_pengaduan' , $id)->first();
+        return view('update' , ['pengaduan' => $pengaduan]);
     }
+    function proses_update_pengaduan(Request $request, $id)
+    {
+        $isi_laporan = $request->isi_laporan;
 
-    // $positions = position::all();
-    // return view('users.tampilupdate', compact('positions'));
+        DB::table('pengaduan')
+        ->where('id_pengaduan', $id)
+        ->update(['isi_laporan' => $isi_laporan]);
+        
+        return redirect('/pengaduan');
+    }
 
 }

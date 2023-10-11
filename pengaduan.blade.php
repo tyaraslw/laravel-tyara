@@ -17,8 +17,9 @@
         <div class="container">
           <table class="table"> 
             <tr>
-              <th scope="col">tanggal_pengaduan</th>
-              <th scope="col">id_pengaduan</th>
+              <th scope="col">NIK</th>
+              <th scope="col">id</th>
+              <th scope="col">tanggal</th>
               <th scope="col">isi_laporan</th>
               <th scope="col">foto</th>
               <th scope="col">status</th>
@@ -29,6 +30,7 @@
             <tr>
               <td>{{$pengaduan->nik}}</td>  
               <td>{{$pengaduan->id_pengaduan}}</td>  
+              <td>{{$pengaduan->tgl_pengaduan}}</td>  
               <td>{{$pengaduan->isi_laporan}} </td>
               <td>{{$pengaduan->foto}}</td>  
               <td>{{$pengaduan->status}}</td>
