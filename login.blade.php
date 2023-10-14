@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/home.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css"> -->
 </head>
 
 <body>
-    @include('layouts.nav') 
+    <!-- @include('layouts.nav')  -->
     <div class="wrapper">
         <form action="proses-login.php" method="POST" enctype="multipart/form-data">
             <h1>Login</h1>
@@ -25,10 +25,10 @@
                 <label><input type="checkbox"> Remember me</label>
             </div>
 
-            <button type="submit" class="btn btn-light">kirim</button>
+            <input class="btn btn-primary" type="submit" value="kirim"> 
 
             <div class="register-link">
-                <p>Tidak punya akun? <a href="register.php">Register</a></p>
+                <p>Tidak punya akun? <a href="register">Register</a></p>
             </div>
         </form>
     </div>

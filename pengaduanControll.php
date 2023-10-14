@@ -23,9 +23,11 @@ class pengaduanControll extends Controller
     {
 
         $data = "Data Laporan";
-        $pengaduan = DB::table('pengaduan')->get();
+        // $pengaduan = DB::table('pengaduan')->get();
+ 
+        $pengaduan = Pengaduan::all();
 
-        return view('pengaduan', ['TextIsi' => $data, 'pengaduan' => $pengaduan]);
+        return view('pengaduan', ['TextIsi' => $data, 'pengaduan' => $pengaduan]);  
     }
 
     function tampil_isi()
@@ -40,7 +42,7 @@ class pengaduanControll extends Controller
     {
         //validasi
         $nama_foto = $request->foto->getClientOriginalName();
-
+        
         $request->validate([
             'isi_laporan' => 'required|min:2'
         ]);

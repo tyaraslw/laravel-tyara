@@ -18,7 +18,6 @@
           <table class="table"> 
             <tr>
               <th scope="col">NIK</th>
-              <th scope="col">id</th>
               <th scope="col">tanggal</th>
               <th scope="col">isi_laporan</th>
               <th scope="col">foto</th>
@@ -29,7 +28,6 @@
               @foreach ($pengaduan as $pengaduan)
             <tr>
               <td>{{$pengaduan->nik}}</td>  
-              <td>{{$pengaduan->id_pengaduan}}</td>  
               <td>{{$pengaduan->tgl_pengaduan}}</td>  
               <td>{{$pengaduan->isi_laporan}} </td>
               <td><img src='{{asset("storage/image/" .$pengaduan->foto)}}' widht="100px"/></td>  
